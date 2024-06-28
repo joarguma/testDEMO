@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "52d3b4ef-846d-4e39-9b1e-ff681c9504ec",
+		"name": "Keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Token openshift Old",
+			"id": "d55345cc-487e-4dba-9118-5e2082392616",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "28N1BBalEsCkVzcjRnkRuVy0vyMRfJ8i",
+						"username": "backend-services"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "gbm",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://keycloak-quarkus-keycloak.apps.ocpdev.reservas.brrd.com/realms/quarkus/protocol/openid-connect/token"
+			},
+			"response": []
+		},
+		{
+			"name": "getToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e25a830-f806-437c-8136-ec8ea3711e9a",
+						"exec": [
+							"var responseBody = pm.response.json();\r",
+							"var accessToken = responseBody.access_token;\r",
+							"pm.environment.set(\"KeyCloakToken\", accessToken);\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "81703016-6f87-4dbc-a26b-d200dddf21b9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "Yq5rGO0Yo06YkEVu2sQPGm0zKfC8cZtr",
+						"username": "backend-services"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "jagmartinez",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://keycloak-quarkus-keycloak.apps.ocpdev.reservas.brrd.com/realms/integration/protocol/openid-connect/token"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c331ea96-de97-41e4-9355-e556faf5295d",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "57011451-9af8-472f-948b-72b5287a93bf",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
