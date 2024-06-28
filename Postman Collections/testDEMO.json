@@ -61,7 +61,7 @@
 							"var responseBody = pm.response.json();\r",
 							"var accessToken = responseBody.access_token;\r",
 							"pm.environment.set(\"KeyCloakToken\", accessToken);\r",
-							"\r",
+							"//RED AND BLUE\r",
 							"\r",
 							""
 						],
